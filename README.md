@@ -2,6 +2,14 @@
 
 Krmane is a modern-retro take on Nokia Snake for Windows. Plain HTML/CSS/JavaScript with a Canvas board, playable in a browser or as a standalone Electron desktop app. No backend, no accounts.
 
+## Download and play (Windows)
+
+1. Go to the [latest release](https://github.com/esmahildev/Krmane/releases/latest) and download **Krmane-1.0.0.exe**.
+2. Double-click it. No installation and no Node.js needed.
+3. The first time, Windows SmartScreen may say "Windows protected your PC" because the app is not code-signed. Click **More info**, then **Run anyway**.
+
+Prefer to run it from source? See [Requirements](#requirements) below.
+
 ## Controls (keyboard)
 
 | Key | Action |
