@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'"
+    />
+    <title>Krmane</title>
+    <link rel="icon" type="image/svg+xml" href="assets/icon.svg" />
+    <link rel="stylesheet" href="src/styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="hud">
+        <div class="stat"><span class="stat-label">Score</span><span class="stat-value" id="score">0</span></div>
+        <div class="stat"><span class="stat-label">Best</span><span class="stat-value" id="best">0</span></div>
+        <div class="stat"><span class="stat-label" id="difficultyLabel">Normal</span><span class="stat-value" id="speed">1.0×</span></div>
+        <div class="hud-buttons">
+          <button type="button" class="icon-btn" id="pauseBtn" title="Pause / resume (Space)" aria-label="Pause">❚❚</button>
+          <button type="button" class="icon-btn" id="soundBtn" title="Sound on/off (M)" aria-label="Toggle sound" aria-pressed="true">♪</button>
+          <button type="button" class="icon-btn" id="fullscreenBtn" title="Fullscreen (F)" aria-label="Toggle fullscreen">⛶</button>
+        </div>
+      </header>
+
+      <section class="board-area" id="boardArea">
+        <div class="board-stage" id="boardStage">
+          <canvas id="board" aria-label="Krmane game board"></canvas>
+
+          <div class="overlay" id="menuOverlay">
+            <h1 class="title">KRMANE</h1>
+            <p class="subtitle">Eat the red dots. Don't hit the walls or yourself.</p>
+            <div class="segmented" role="group" aria-label="Difficulty" id="difficultyGroup">
+              <button type="button" data-difficulty="easy">Easy</button>
+              <button type="button" data-difficulty="normal">Normal</button>
+              <button type="button" data-difficulty="hard">Hard</button>
+            </div>
+            <button type="button" class="btn primary" id="playBtn">Play <kbd>Enter</kbd></button>
+            <button type="button" class="btn ghost" id="menuSoundBtn" aria-pressed="true">Sound: On</button>
+            <p class="menu-hint"><kbd>←</kbd><kbd>→</kbd> or <kbd>1</kbd><kbd>2</kbd><kbd>3</kbd> change difficulty</p>
+          </div>
+
+          <div class="overlay" id="pauseOverlay" hidden>
+            <h2 class="title small">PAUSED</h2>
+            <button type="button" class="btn primary" id="resumeBtn">Resume <kbd>Space</kbd></button>
+            <button type="button" class="btn ghost" id="pauseRestartBtn">Restart</button>
+            <button type="button" class="btn ghost" id="pauseMenuBtn">Main menu</button>
+          </div>
+
+          <div class="overlay" id="overOverlay" hidden>
+            <h2 class="title small" id="overTitle">GAME OVER</h2>
+            <p class="record" id="recordMsg" hidden>★ New record! ★</p>
+            <div class="final">
+              <div><span class="stat-label">Score</span><span class="stat-value" id="finalScore">0</span></div>
+              <div><span class="stat-label">Best</span><span class="stat-value" id="finalBest">0</span></div>
+            </div>
+            <button type="button" class="btn primary" id="againBtn">Play again <kbd>Enter</kbd></button>
+            <button type="button" class="btn ghost" id="overMenuBtn">Main menu <kbd>Esc</kbd></button>
+          </div>
+        </div>
+      </section>
+
+      <footer class="hints">
+        <span><kbd>↑</kbd><kbd>↓</kbd><kbd>←</kbd><kbd>→</kbd> / <kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> move</span>
+        <span><kbd>Space</kbd> pause</span>
+        <span><kbd>Enter</kbd> start / restart</span>
+        <span><kbd>F</kbd> fullscreen</span>
+        <span><kbd>M</kbd> sound</span>
+        <span><kbd>Esc</kbd> close</span>
+      </footer>
+    </main>
+    <script type="module" src="src/main.js"></script>
+  </body>
+</html>

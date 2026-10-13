@@ -1,0 +1,41 @@
+{
+  "name": "krmane",
+  "version": "1.0.0",
+  "description": "A modern-retro Snake game for Windows, named Krmane (browser or Electron desktop app).",
+  "private": true,
+  "type": "module",
+  "main": "electron/main.cjs",
+  "author": "Krmane",
+  "scripts": {
+    "start": "node scripts/serve.js",
+    "test": "node --test \"tests/*.test.js\"",
+    "desktop": "node scripts/desktop.js",
+    "pack": "electron-builder --win --dir",
+    "dist": "electron-builder --win"
+  },
+  "build": {
+    "appId": "com.example.krmane",
+    "productName": "Krmane",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "index.html",
+      "src/**/*",
+      "assets/**/*",
+      "electron/**/*",
+      "package.json"
+    ],
+    "win": {
+      "icon": "assets/icon.ico",
+      "artifactName": "Krmane ${version}.${ext}",
+      "target": [
+        "portable"
+      ]
+    }
+  },
+  "devDependencies": {
+    "electron": "^44.7.0",
+    "electron-builder": "^26.15.3"
+  }
+}
